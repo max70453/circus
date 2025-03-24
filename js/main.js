@@ -10,7 +10,21 @@
 'use strict';
 
 (function ($) {
+  
+ // Back to top button
+ $(window).scroll(function() {
+    if ($(this).scrollTop() > 200) {
+        $('.back-to-top').addClass('active');
+    } else {
+        $('.back-to-top').removeClass('active');
+    }
+});
 
+$('.back-to-top').click(function(e) {
+    e.preventDefault();
+    $('html, body').animate({scrollTop: 0}, 500);
+    return false;
+});
     /*------------------
         Preloader
     --------------------*/
@@ -152,3 +166,77 @@
     });
 
 })(jQuery);
+
+function validateForm(event) {
+    event.preventDefault(); // Prevent form submission
+    //Get form elements
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const phone = document.getElementById("phone");
+    const message = document.getElementById("message");
+    const errorDiv = document.getElementById("formErrors");
+
+    //Reset errors
+    errorDiv.innerHTML = "";
+    [name, email, phone, message].forEach((field) => {
+      field.classList.remove("error");
+    });
+
+    let errors = [];
+
+    //Validate name
+    if (!name.value.trim()) {
+      errors.push("Пожалуйста введите ваше имя");
+      name.classList.add("error");
+    }
+    //Validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email.value.trim())) {
+          errors.push('Пожалуйста, введите корректный email');
+          email.classList.add('error');
+      }
+    //Validate phone
+    const phoneRegex = /^\+?[0-9]{10,15}$/;
+      if (!phoneRegex.test(phone.value.trim())) {
+          errors.push('Пожалуйста, введите корректный номер телефона');
+          phone.classList.add('error');
+      }
+    //Validate message
+    if (!message.value.trim()) {
+      errors.push("Пожалуйста введите сообщение");
+      message.classList.add("error");
+    }
+    // Display errors if any
+    if (errors.length > 0) {
+      errorDiv.innerHTML = errors.join('<br>');
+      return false;
+  }
+   // If validation passes, process the form
+   const formData = {
+      name: name.value.trim(),
+      email: email.value.trim(),
+      phone: phone.value.trim(),
+      message: message.value.trim()
+  };
+  // Send form data (you can replace this with your actual form processing logic)
+  submitForm(formData);
+  return false;
+  }
+  function submitForm(formData) {
+      // Here you can add your form submission logic (e.g., AJAX call to your server)
+      console.log('Form data:', formData);
+      
+      // For demonstration, show success message
+      const form = document.getElementById('contactForm');
+      const errorDiv = document.getElementById('formErrors');
+      
+      errorDiv.style.color = '#fff';
+      errorDiv.innerHTML = 'Сообщение успешно отправлено!';
+      form.reset();
+
+      // Reset success message after 3 seconds
+      setTimeout(() => {
+          errorDiv.innerHTML = '';
+          errorDiv.style.color = '#fff';
+      }, 3000);
+  }

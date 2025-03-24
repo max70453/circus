@@ -402,14 +402,14 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <div class="contact__form">
-                                    
-                                        <form action="#">
+                                        <form id="contactForm" name="contactForm" onsubmit="validateForm(event)" action="#">
                                             <div class="input__list">
-                                                <input type="text" placeholder="Имя">
-                                                <input type="text" placeholder="Email">
-                                                <input type="phone" placeholder="Телефон">
+                                                <input type="text" id="name" name="name" placeholder="Имя">
+                                                <input type="email" id="email" name="email" placeholder="Email">
+                                                <input type="tel" id="phone" name="phone" placeholder="Телефон">
                                             </div>
-                                            <textarea placeholder="Сообщение"></textarea>
+                                            <textarea id="message" name="message" placeholder="Сообщение"></textarea>
+                                            <div id="formErrors" class="error-messages"></div>
                                             <button type="submit" class="site-btn">отправить сообщение</button>
                                         </form>
                                     </div>
@@ -423,6 +423,11 @@
         </div>
     </section>
     <!-- Countdown Section End -->
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fa fa-angle-up"></i>
+    </a>
 
     <!-- Footer Section Begin -->
     <footer class="footer spad set-bg" data-setbg="img/footer-bg.png">
@@ -480,11 +485,60 @@
     <script src="js/jquery.countdown.min.js"></script>
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+    
 
     <!-- Music Plugin -->
     <script src="js/jquery.jplayer.min.js"></script>
     <script src="js/jplayerInit.js"></script>
+    <script src="js/main.js"></script>
+    <!-- <script>
+        function validateForm(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const phone = document.getElementById('phone');
+            const message = document.getElementById('message');
+            const errorDiv = document.getElementById('formErrors');
+            
+            errorDiv.innerHTML = '';
+            [name, email, phone, message].forEach(el => el.classList.remove('error'));
+            
+            let errors = [];
+
+            if (!name.value.trim()) {
+                errors.push('Пожалуйста, введите ваше имя');
+                name.classList.add('error');
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value.trim())) {
+                errors.push('Пожалуйста, введите корректный email');
+                email.classList.add('error');
+            }
+
+            const phoneRegex = /^\+?[0-9]{10,15}$/;
+            if (!phoneRegex.test(phone.value.trim())) {
+                errors.push('Пожалуйста, введите корректный номер телефона');
+                phone.classList.add('error');
+            }
+
+            if (!message.value.trim()) {
+                errors.push('Пожалуйста, введите сообщение');
+                message.classList.add('error');
+            }
+
+            if (errors.length > 0) {
+                errorDiv.innerHTML = errors.join('<br>');
+                return false;
+            }
+
+            // Here you can add your form submission logic
+            alert('Форма успешно отправлена!');
+            document.getElementById('contactForm').reset();
+            return false;
+        }
+    </script> -->
 </body>
 
 </html>
