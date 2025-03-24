@@ -1,0 +1,6 @@
+@font-face {
+    font-family: 'GreatVibes';
+    font-style: normal;
+    font-weight: normal;
+    src: local('GreatVibes'), url('../fonts/GreatVibes-Regular.woff') format('woff');
+    }
