@@ -387,6 +387,67 @@
     </section>
     <!-- Youtube Section End -->
 
+    <!-- Testimonials Section Begin -->
+    <div class="row" style="margin: 0">
+    <div class="col-lg-12">
+        <div class="section-title text-center" style="padding-bottom: 50px;">
+            <h1>Отзывы наших зрителей</h1>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="testimonial-slider owl-carousel">
+        <div class="testimonial-item">
+            <div class="testimonial-text">
+            <p style="font-size: 20px;">Это было бесподобно, феерично, сказочно! Я впервые испытала такие эмоции от циркового представления! Успехов и процветания!!</p>
+            </div>
+            <div class="testimonial-author">
+            <div class="author-avatar">
+                <img src="img/testimonial-1.webp" alt="Марина">
+            </div>
+            <div class="author-info">
+                <h5>Марина</h5>
+            </div>
+            </div>
+        </div>
+        <div class="testimonial-item">
+            <div class="testimonial-text">
+            <p style="font-size: 20px;">
+                Ходили с семьей на шоу. Это больше, чем цирк! Эмоции переполняли после каждого номера! 
+                Шикарнейшие костюмы, декорации, световые эффекты, файер-сопровождение! 
+                Отдельно стоит отметить номера с водой, это просто что-то невероятное!
+            </p>
+            </div>
+            <div class="testimonial-author">
+            <div class="author-avatar">
+                <img src="img/testimonial-2.webp" alt="Ирина">
+            </div>
+            <div class="author-info">
+                <h5>Ирина</h5>
+            </div>
+            </div>
+        </div>
+        <div class="testimonial-item">
+            <div class="testimonial-text">
+            <p style="font-size: 20px;">
+                Посетила с подругой Восхитительное шоу. Дух захватывает от всего увиденного.
+                Мурашки от акробатических номеров. Артисты божественны, животные очаровашки. 
+                Придём ещё раз посмотреть эту красоту.!!!!
+            </p>
+            </div>
+            <div class="testimonial-author">
+            <div class="author-avatar">
+                <img src="img/testimonial-3.jpg" alt="Елена">
+            </div>
+            <div class="author-info">
+                <h5>Елена</h5>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+    <!-- Testimonials Section End -->
+
     <!-- Countdown Section Begin -->
     <section class="countdown spad set-bg" data-setbg="img/robin.jpg">
         <div class="container">
@@ -486,59 +547,10 @@
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     
-
     <!-- Music Plugin -->
     <script src="js/jquery.jplayer.min.js"></script>
     <script src="js/jplayerInit.js"></script>
     <script src="js/main.js"></script>
-    <!-- <script>
-        function validateForm(event) {
-            event.preventDefault();
-            
-            const name = document.getElementById('name');
-            const email = document.getElementById('email');
-            const phone = document.getElementById('phone');
-            const message = document.getElementById('message');
-            const errorDiv = document.getElementById('formErrors');
-            
-            errorDiv.innerHTML = '';
-            [name, email, phone, message].forEach(el => el.classList.remove('error'));
-            
-            let errors = [];
-
-            if (!name.value.trim()) {
-                errors.push('Пожалуйста, введите ваше имя');
-                name.classList.add('error');
-            }
-
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email.value.trim())) {
-                errors.push('Пожалуйста, введите корректный email');
-                email.classList.add('error');
-            }
-
-            const phoneRegex = /^\+?[0-9]{10,15}$/;
-            if (!phoneRegex.test(phone.value.trim())) {
-                errors.push('Пожалуйста, введите корректный номер телефона');
-                phone.classList.add('error');
-            }
-
-            if (!message.value.trim()) {
-                errors.push('Пожалуйста, введите сообщение');
-                message.classList.add('error');
-            }
-
-            if (errors.length > 0) {
-                errorDiv.innerHTML = errors.join('<br>');
-                return false;
-            }
-
-            // Here you can add your form submission logic
-            alert('Форма успешно отправлена!');
-            document.getElementById('contactForm').reset();
-            return false;
-        }
-    </script> -->
 </body>
 
 </html>
